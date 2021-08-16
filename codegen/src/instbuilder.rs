@@ -157,10 +157,9 @@ pub trait InstBuilder {
         AbiType("intptr".into(), Type::Plain)
     }
 
-    /// A C-specific character type that is equivalent to a `uint32` type.
+    /// A C-specific character type.
     fn ctype_char(&mut self) -> AbiType {
-        self.require_import("stdint.h".into());
-        AbiType("uint32_t".into(), Type::Plain)
+        AbiType("char".into(), Type::Plain)
     }
 
     /// Adds two values together and returns the sum of the expression.
