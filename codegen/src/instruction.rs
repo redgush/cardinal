@@ -28,6 +28,7 @@ pub enum Opcode {
     Jmp,
     Set,
     Call,
+    Ret,
 
 }
 

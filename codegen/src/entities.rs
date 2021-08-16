@@ -23,10 +23,17 @@ impl Variable {
 
 }
 
-/// An opaque reference to an ABI value.  Currently this does nothing and is only used as a
-/// placeholder.
+/// An opaque reference to a Cardinal global variable.
 #[derive(Clone, PartialEq)]
-pub struct AbiValue(pub Named);
+pub struct GlobalVariable(pub String);
+
+impl GlobalVariable {
+
+    pub fn named(&self) -> Named {
+        Named::new(self.0.to_string())
+    }
+
+}
 
 /// Different types of types that can be declared.
 #[derive(Clone, PartialEq)]

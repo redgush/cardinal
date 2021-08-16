@@ -353,12 +353,39 @@ pub trait InstBuilder {
     }
 
     /// Makes a function call with the specified function name and arguments.
-    fn icall(&mut self, k: Value, args: Vec<Value>) {
+    fn call(&mut self, k: Value, args: Vec<Value>) {
         let mut v = vec![k];
         v.append(&mut args.clone());
         self.create_inst(InstructionInfo {
             opcode: Opcode::Call,
             arguments: v
+        });
+    }
+
+    /// Makes a function call and returns the value that the function call returns.
+    fn icall(&mut self, k: Value, args: Vec<Value>) -> Value {
+        let mut v = vec![k];
+        v.append(&mut args.clone());
+        self.create_value(ValueInfo::Instruction(InstructionInfo {
+            opcode: Opcode::Call,
+            arguments: v
+        }))
+    }
+
+    /// Returns a value from the function that this InstBuilder resides in.
+    fn return_(&mut self, v: Value) {
+        self.create_inst(InstructionInfo {
+            opcode: Opcode::Ret,
+            arguments: vec![v]
+        });
+    }
+
+    /// Returns and exits the function, without returning a value.  The function should have a
+    /// return type of `void`.
+    fn return_none(&mut self) {
+        self.create_inst(InstructionInfo {
+            opcode: Opcode::Ret,
+            arguments: vec![]
         });
     }
 
