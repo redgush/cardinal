@@ -141,6 +141,9 @@ impl CBackend {
             ValueInfo::StringConstant(b) => {
                 "\"".to_string() + &b + "\""
             },
+            ValueInfo::CharConstant(b) => {
+                "'".to_string() + &b + "'"
+            },
         }
     }
 

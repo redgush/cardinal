@@ -137,6 +137,9 @@ pub enum ValueInfo {
     /// A string constant.
     StringConstant(String),
 
+    /// A character constant.
+    CharConstant(String),
+
     /// A named reference.
     Named(Named),
 
