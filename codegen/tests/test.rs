@@ -1,6 +1,6 @@
 extern crate cardinal_codegen;
 
-use cardinal_codegen::entities::{AbiType, Named, Type};
+use cardinal_codegen::entities::{AbiType, Type};
 use cardinal_codegen::function::{Function, FunctionSignature};
 use cardinal_codegen::instbuilder::InstBuilder;
 
@@ -16,7 +16,7 @@ mod tests {
 
         let v = func.declare_var("my_var".into(), AbiType("int".into(), Type::Plain));
         
-        let mut block0;
+        let block0;
         {
             let block = func.create_block();
             block0 = func.use_block(block);
