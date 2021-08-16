@@ -3,6 +3,7 @@
 use crate::entities::{Block, Value, ValueInfo};
 use crate::instbuilder::InstBuilder;
 
+#[derive(Clone, Copy)]
 pub enum Opcode {
 
     Add,
@@ -33,6 +34,7 @@ pub enum Opcode {
 }
 
 /// Information about an instruction or operation.
+#[derive(Clone)]
 pub struct InstructionInfo {
 
     /// The opcode of the instruction.
@@ -44,6 +46,7 @@ pub struct InstructionInfo {
 }
 
 /// A block type for creating different kinds of blocks.
+#[derive(Clone, Copy)]
 pub enum BlockType {
 
     /// A basic IF type that uses a value as an expression.
@@ -55,6 +58,7 @@ pub enum BlockType {
 }
 
 /// A block for instruction building.
+#[derive(Clone)]
 pub struct InstBlock {
 
     /// The type of the block.

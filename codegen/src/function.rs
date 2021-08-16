@@ -1,6 +1,6 @@
 //! Exposes types for function declarations and definitions.
 
-use crate::entities::{AbiType, Block, Named, Type, Variable};
+use crate::entities::{AbiParam, AbiType, Block, Type, Variable};
 use crate::instruction::{InstBlock, BlockType};
 use std::collections::HashMap;
 
@@ -26,7 +26,7 @@ pub struct FunctionSignature {
 
     /// A list of arguments in the function signature, which are checked at compile time to
     /// verify their validity.
-    pub arguments: Vec<AbiType>,
+    pub arguments: Vec<AbiParam>,
 
     /// A return value of the function.  Defaults to `void`.
     pub returns: AbiType,
@@ -38,7 +38,7 @@ impl FunctionSignature {
     pub fn new() -> Self {
         Self {
             arguments: vec![],
-            returns: AbiType(Named::new("void".into()), Type::Plain)
+            returns: AbiType("void".into(), Type::Plain)
         }
     }
 

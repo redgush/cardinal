@@ -4,11 +4,11 @@ use crate::instruction::InstructionInfo;
 
 /// An opaque reference to a Cardinal SSA value.  These can be used as instruction parameters,
 /// if a value is not used, it will not be included in the generated code.
-#[derive(Clone, PartialEq)]
+#[derive(Clone, Copy, PartialEq)]
 pub struct Value(pub u32);
 
 /// An opaque reference to a Cardinal IR block.
-#[derive(Clone, PartialEq)]
+#[derive(Clone, Copy, PartialEq)]
 pub struct Block(pub u32);
 
 /// An opaque reference to a Cardinal variable.
@@ -53,7 +53,11 @@ pub enum Type {
 
 /// An ABI type.
 #[derive(Clone, PartialEq)]
-pub struct AbiType(pub Named, pub Type);
+pub struct AbiType(pub String, pub Type);
+
+/// An ABI value used for function parameters.
+#[derive(Clone, PartialEq)]
+pub struct AbiParam(pub String, pub AbiType);
 
 /// Properties of a `Named` struct that may be basic properties, static properties, pointer
 /// properties or index properties.
@@ -115,6 +119,7 @@ impl Named {
 
 
 /// Information about a value.
+#[derive(Clone)]
 pub enum ValueInfo {
 
     /// An integer constant.

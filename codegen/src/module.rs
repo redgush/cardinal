@@ -22,25 +22,25 @@ impl Module {
     /// Creates a new empty module.
     pub fn new() -> Self {
         Self {
-            functions: vec![],
+            functions: HashMap::new(),
             data: HashMap::new(),
         }
     }
 
     /// Declares a function with the specified name.
     pub fn declare_function(&mut self, name: String) {
-        let func = Function::new(name, FunctionSignature::new());
+        let func = Function::new(name.to_string(), FunctionSignature::new());
         self.functions.insert(name, func);
     }
 
     /// Defines a function with the specified name.
     pub fn define_function(&mut self, func: Function) {
-        self.functions.insert(func.name, func);
+        self.functions.insert(func.name.to_string(), func);
     }
 
     /// Declares a variable in the module.
     pub fn declare_variable(&mut self, name: String, val_type: AbiType) -> GlobalVariable {
-        self.data.insert(name, val_type);
+        self.data.insert(name.to_string(), val_type);
         GlobalVariable(name)
     }
 

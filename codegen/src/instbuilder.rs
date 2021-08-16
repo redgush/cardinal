@@ -82,35 +82,35 @@ pub trait InstBuilder {
     fn ctype_bool(&mut self) -> AbiType {
         // The C bool type requires `stdbool.h` to be imported.
         self.require_import("stdbool.h".into());
-        AbiType(Named::new("bool".into()), Type::Plain)
+        AbiType("bool".into(), Type::Plain)
     }
 
     /// Creates a C target specific 8 bit unsigned integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_uint8(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("uint8_t".into()), Type::Plain)
+        AbiType("uint8_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific 16 bit unsigned integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_uint16(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("uint16_t".into()), Type::Plain)
+        AbiType("uint16_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific 32 bit unsigned integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_uint32(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("uint32_t".into()), Type::Plain)
+        AbiType("uint32_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific 64 bit unsigned integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_uint64(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("uint64_t".into()), Type::Plain)
+        AbiType("uint64_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific size that scales to the target's architecture.  For 32-bit
@@ -118,35 +118,35 @@ pub trait InstBuilder {
     /// same as a `uint64`.
     fn ctype_usize(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("uintptr".into()), Type::Plain)
+        AbiType("uintptr".into(), Type::Plain)
     }
 
     /// Creates a C target specific 8 bit integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_int8(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("int8_t".into()), Type::Plain)
+        AbiType("int8_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific 16 bit integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_int16(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("uint16_t".into()), Type::Plain)
+        AbiType("uint16_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific 32 bit integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_int32(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("int32_t".into()), Type::Plain)
+        AbiType("int32_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific 64 bit integer type.  Requires the `stdint.h`
     /// standard library to be provided by your C compiler.
     fn ctype_int64(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("int64_t".into()), Type::Plain)
+        AbiType("int64_t".into(), Type::Plain)
     }
 
     /// Creates a C target specific size that scales to the target's architecture.  For 32-bit
@@ -154,13 +154,13 @@ pub trait InstBuilder {
     /// same as an `int64`.
     fn ctype_isize(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("intptr".into()), Type::Plain)
+        AbiType("intptr".into(), Type::Plain)
     }
 
     /// A C-specific character type that is equivalent to a `uint32` type.
     fn ctype_char(&mut self) -> AbiType {
         self.require_import("stdint.h".into());
-        AbiType(Named::new("uint32_t".into()), Type::Plain)
+        AbiType("uint32_t".into(), Type::Plain)
     }
 
     /// Adds two values together and returns the sum of the expression.
