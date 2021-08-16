@@ -1,10 +1,12 @@
 [package]
 name = "cardinal-codegen"
 description = "A code generator written in Rust."
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Zack <trimorphyt@gmail.com>"]
 edition = "2018"
 license = "MIT"
+homepage = "https://github.com/redgush/cardinal"
+repository = "https://github.com/redgush/cardinal"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
